@@ -82,7 +82,16 @@ const projectConfig = {
 
 /** @type {import('@medusajs/medusa').ConfigModule} */
 module.exports = {
+  admin_cors: process.env.ADMIN_CORS || "/http:\\/\\/localhost:700\\d+$/",
+  store_cors: process.env.STORE_CORS || "/vercel\\.app$/",
+  cookie_secret: process.env.COOKIE_SECRET,
+  jwt_secret: process.env.JWT_SECRET,
+  database_database: "medusa-store",
+  database_schema: "custom",
+  database_type: "postgres",
+  database_url: process.env.DATABASE_URL,
   projectConfig,
   plugins,
   modules,
+
 };
