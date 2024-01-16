@@ -19,7 +19,7 @@ switch (process.env.NODE_ENV) {
 
 try {
   dotenv.config({ path: process.cwd() + "/" + ENV_FILE_NAME });
-} catch (e) { }
+} catch (e) {}
 
 // CORS when consuming Medusa from admin
 const ADMIN_CORS =
@@ -51,21 +51,6 @@ const plugins = [
         open: process.env.OPEN_BROWSER !== "false",
       },
     },
-  },
-  {
-    resolve: `medusa-payment-phonepe`,
-
-
-    options: {
-      redirectUrl: "http://localhost:8000/api/payment-confirmed",
-      callbackUrl: "http://localhost:9000/phonepe/hook",
-      salt: process.env.PHONEPE_SALT,
-      merchantId:
-        process.env.PHONEPE_MERCHANT_ACCOUNT||"UATMERCHANT",
-      mode: process.env.PHONEPE_MODE||"uat"||"test",
-      redirectMode: "POST"
-    }
-
   },
 ];
 
