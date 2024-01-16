@@ -92,6 +92,9 @@ module.exports = {
   database_url: process.env.DATABASE_URL,
   projectConfig,
   plugins,
-  modules,
-
+  modules :{
+    eventBus: {
+      resolve: "@medusajs/event-bus-local",
+    },
+  },
 };
